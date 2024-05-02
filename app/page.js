@@ -2,7 +2,7 @@ import Donut from "@/components/donut";
 
 async function getData(){
     try {
-        const res = await fetch('http://localhost:3000/api/getdata');
+        const res = await fetch(`${process.env.NEXT_URL}/api/getdata`);
         const data = await res.json();
         return data;
     }
