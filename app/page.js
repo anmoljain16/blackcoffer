@@ -1,21 +1,28 @@
 import Donut from "@/components/donut";
 
 async function getData(){
-  return await fetch(`${process.env.NEXT_URL}/api/getdata`,{
-    method: "GET",
-  }).then((res) => res.json());
+    try {
+        const res = await fetch('http://localhost:3000/api/getdata');
+        const data = await res.json();
+        return data;
+    }
+    catch (error) {
+        console.error(error);
+        return {error: true, message: "Something went wrong"};
+    }
 }
 
 export default async function Home() {
 
 
-  // const data = await getData();
+  const data = await getData();
+  if(data.error) return <div>{data.message}</div>;
+
     // console.log(data);
 
   return (
    <>
-       <h1>Anmol Jain</h1>
-     {/*<Donut data={data} />*/}
+     <Donut data={data} />
    </>
   );
 }

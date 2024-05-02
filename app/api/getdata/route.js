@@ -6,7 +6,7 @@ export async function GET(){
         // find where sector is Environment and topic is oil
 
         // const data = await Insight.find({sector: "Environment", topic: "oil"})
-        const data = await Insight.find({}).limit(50)
+        const data = await Insight.find({}).limit(100)
         return Response.json(data);
     }
     catch (error) {
