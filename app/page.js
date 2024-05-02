@@ -9,12 +9,13 @@ async function getData(){
 export default async function Home() {
 
 
-  const data = await getData();
+  // const data = await getData();
     // console.log(data);
 
   return (
    <>
-     <Donut data={data} />
+       <h1>Anmol Jain</h1>
+     {/*<Donut data={data} />*/}
    </>
   );
 }
